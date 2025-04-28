@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusinessDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account_Transaction">
+    <Key>
+      <PropertyRef Name="transaction_id" />
+    </Key>
+    <Property Name="transaction_id" Type="int" Nullable="false" />
+    <Property Name="entity_type" Type="nvarchar" MaxLength="20" />
+    <Property Name="entity_id" Type="int" />
+    <Property Name="transaction_type" Type="nvarchar" MaxLength="20" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="transaction_date" Type="date" />
+    <Property Name="note" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Client_Order_Item">
+    <Key>
+      <PropertyRef Name="order_item_id" />
+    </Key>
+    <Property Name="order_item_id" Type="int" Nullable="false" />
+    <Property Name="order_index" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="unit_price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="total_due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="total_paid" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Employee_Roles">
+    <Key>
+      <PropertyRef Name="employee_id" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="employee_id" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="order_index" />
+    </Key>
+    <Property Name="order_index" Type="int" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="client_id" Type="int" />
+    <Property Name="employee_id" Type="int" />
+    <Property Name="pay_method_id" Type="int" />
+    <Property Name="order_date" Type="date" />
+  </EntityType>
+  <EntityType Name="Payment_Methods">
+    <Key>
+      <PropertyRef Name="pay_method_id" />
+    </Key>
+    <Property Name="pay_method_id" Type="int" Nullable="false" />
+    <Property Name="method_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="discount_percentage" Type="float" />
+  </EntityType>
+  <EntityType Name="Product_Price_History">
+    <Key>
+      <PropertyRef Name="price_id" />
+    </Key>
+    <Property Name="price_id" Type="int" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="start_date" Type="date" />
+    <Property Name="end_date" Type="date" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="quantity_left" Type="int" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="purchase_index" />
+    </Key>
+    <Property Name="purchase_index" Type="int" Nullable="false" />
+    <Property Name="purchase_id" Type="int" />
+    <Property Name="supplier_id" Type="int" />
+    <Property Name="employee_id" Type="int" />
+    <Property Name="pay_method_id" Type="int" />
+    <Property Name="purchase_date" Type="date" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Supplier_Purchase_Item">
+    <Key>
+      <PropertyRef Name="purchase_item_id" />
+    </Key>
+    <Property Name="purchase_item_id" Type="int" Nullable="false" />
+    <Property Name="purchase_index" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="cost_price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="total_due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="total_paid" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK__Client_Or__order__5441852A">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Client_Order_Item" Type="Self.Client_Order_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_index" />
+      </Principal>
+      <Dependent Role="Client_Order_Item">
+        <PropertyRef Name="order_index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__produ__5535A963">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Client_Order_Item" Type="Self.Client_Order_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Client_Order_Item">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___emplo__3B75D760">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Employee_Roles" Type="Self.Employee_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="Employee_Roles">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___role___3C69FB99">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Employee_Roles" Type="Self.Employee_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="Employee_Roles">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__client_i__4CA06362">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__employee__4D94879B">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__pay_meth__4E88ABD4">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="pay_method_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="pay_method_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product_P__produ__4316F928">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Product_Price_History" Type="Self.Product_Price_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_Price_History">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__employ__59063A47">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__pay_me__59FA5E80">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="pay_method_id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="pay_method_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__suppli__5812160E">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___produ__5DCAEF64">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Supplier_Purchase_Item" Type="Self.Supplier_Purchase_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Supplier_Purchase_Item">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___purch__5CD6CB2B">
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+    <End Role="Supplier_Purchase_Item" Type="Self.Supplier_Purchase_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase">
+        <PropertyRef Name="purchase_index" />
+      </Principal>
+      <Dependent Role="Supplier_Purchase_Item">
+        <PropertyRef Name="purchase_index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BusinessDBModelStoreContainer">
+    <EntitySet Name="Account_Transaction" EntityType="Self.Account_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client_Order_Item" EntityType="Self.Client_Order_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_Roles" EntityType="Self.Employee_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Methods" EntityType="Self.Payment_Methods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Price_History" EntityType="Self.Product_Price_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier_Purchase_Item" EntityType="Self.Supplier_Purchase_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Client_Or__order__5441852A" Association="Self.FK__Client_Or__order__5441852A">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Client_Order_Item" EntitySet="Client_Order_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__produ__5535A963" Association="Self.FK__Client_Or__produ__5535A963">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Client_Order_Item" EntitySet="Client_Order_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___emplo__3B75D760" Association="Self.FK__Employee___emplo__3B75D760">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employee_Roles" EntitySet="Employee_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___role___3C69FB99" Association="Self.FK__Employee___role___3C69FB99">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Employee_Roles" EntitySet="Employee_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__client_i__4CA06362" Association="Self.FK__Orders__client_i__4CA06362">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__employee__4D94879B" Association="Self.FK__Orders__employee__4D94879B">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__pay_meth__4E88ABD4" Association="Self.FK__Orders__pay_meth__4E88ABD4">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product_P__produ__4316F928" Association="Self.FK__Product_P__produ__4316F928">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_Price_History" EntitySet="Product_Price_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__employ__59063A47" Association="Self.FK__Purchase__employ__59063A47">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__pay_me__59FA5E80" Association="Self.FK__Purchase__pay_me__59FA5E80">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__suppli__5812160E" Association="Self.FK__Purchase__suppli__5812160E">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___produ__5DCAEF64" Association="Self.FK__Supplier___produ__5DCAEF64">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Supplier_Purchase_Item" EntitySet="Supplier_Purchase_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___purch__5CD6CB2B" Association="Self.FK__Supplier___purch__5CD6CB2B">
+      <End Role="Purchase" EntitySet="Purchase" />
+      <End Role="Supplier_Purchase_Item" EntitySet="Supplier_Purchase_Item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BusinessDBModelStoreContainer" CdmEntityContainer="BusinessDBEntities2">
+    <EntitySetMapping Name="Account_Transaction">
+      <EntityTypeMapping TypeName="BusinessDBModel.Account_Transaction">
+        <MappingFragment StoreEntitySet="Account_Transaction">
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="transaction_type" ColumnName="transaction_type" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="note" ColumnName="note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order_Item">
+      <EntityTypeMapping TypeName="BusinessDBModel.Client_Order_Item">
+        <MappingFragment StoreEntitySet="Client_Order_Item">
+          <ScalarProperty Name="order_item_id" ColumnName="order_item_id" />
+          <ScalarProperty Name="order_index" ColumnName="order_index" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="BusinessDBModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="total_due" ColumnName="total_due" />
+          <ScalarProperty Name="total_paid" ColumnName="total_paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="BusinessDBModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="BusinessDBModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="order_index" ColumnName="order_index" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="pay_method_id" ColumnName="pay_method_id" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Methods">
+      <EntityTypeMapping TypeName="BusinessDBModel.Payment_Methods">
+        <MappingFragment StoreEntitySet="Payment_Methods">
+          <ScalarProperty Name="pay_method_id" ColumnName="pay_method_id" />
+          <ScalarProperty Name="method_name" ColumnName="method_name" />
+          <ScalarProperty Name="discount_percentage" ColumnName="discount_percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Price_History">
+      <EntityTypeMapping TypeName="BusinessDBModel.Product_Price_History">
+        <MappingFragment StoreEntitySet="Product_Price_History">
+          <ScalarProperty Name="price_id" ColumnName="price_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="BusinessDBModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="quantity_left" ColumnName="quantity_left" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="BusinessDBModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="purchase_index" ColumnName="purchase_index" />
+          <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="pay_method_id" ColumnName="pay_method_id" />
+          <ScalarProperty Name="purchase_date" ColumnName="purchase_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BusinessDBModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Purchase_Item">
+      <EntityTypeMapping TypeName="BusinessDBModel.Supplier_Purchase_Item">
+        <MappingFragment StoreEntitySet="Supplier_Purchase_Item">
+          <ScalarProperty Name="purchase_item_id" ColumnName="purchase_item_id" />
+          <ScalarProperty Name="purchase_index" ColumnName="purchase_index" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="cost_price" ColumnName="cost_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="BusinessDBModel.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="total_due" ColumnName="total_due" />
+          <ScalarProperty Name="total_paid" ColumnName="total_paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Employee_Roles" TypeName="BusinessDBModel.Employee_Roles" StoreEntitySet="Employee_Roles">
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+      </EndProperty>
+      <EndProperty Name="Roles">
+        <ScalarProperty Name="role_id" ColumnName="role_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,19 @@
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping project.csproj.AssemblyReference.cache
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.ADD_Product.resources
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.Add_New_Role.resources
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.order_entry.resources
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.Add_Role_To_Employee.resources
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.Properties.Resources.resources
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping project.csproj.GenerateResource.cache
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping project.csproj.CoreCompileInputs.cache
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\dropshipping project.exe.config
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\dropshipping project.exe
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\dropshipping project.pdb
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\EntityFramework.dll
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\EntityFramework.xml
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropship.A0CA00CC.Up2Date
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping project.exe
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping project.pdb
+C:\Users\3RAPY\Desktop\programing\C# work\digital minds project\dropshipping project\dropshipping project\obj\Debug\dropshipping_project.Add_New_Employee.resources
